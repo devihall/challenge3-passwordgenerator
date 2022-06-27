@@ -10,7 +10,7 @@
 
 ///////////////////////////////
 var lowercaseChar = "abcdefghijklmnopqrstuvwxyz"
-var upperCaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var specialChar = "!@#$%^&*()_+-="
 var numericChar = "1234567890"
 
@@ -36,30 +36,45 @@ function generatePassword() {
   
     console.log ("hello")
   }
-  var lowercaseChar;
-  if (confirm("Would you like to include lowercase charcters? if YES, click OK")){
+  
+  var userVariables = ""
 
+  
+  if (confirm("Would you like to include lowercase charcters? if YES, click OK")===true){
+  userVariables+=lowercaseChar 
   } 
 
+  if (confirm("Would you like to include uppercase charcters? if YES, click OK")===true){
+    userVariables+=uppercaseChar 
+    } 
 
-  //{ window.confirm ("Would you like to include uppercase charcters? if YES, click OK")
+  if (confirm("Would you like to include special charcters? if YES, click OK")===true){
+      userVariables+=specialChar 
+      } 
+  if (confirm("Would you like to include numeric charcters? if YES, click OK")===true){
+        userVariables+=numericChar 
+        } 
+  
+  function randomizer() {
+  
+  
+  var password ="";
+  for (var i=0; i<passwordLength; i++) {
+    var randomNum =math.floor(math.random() * passwordLength.length);
+    password = password + passwordLength [randomNum]
+  }
+}  
+  
+////////////////////////////////////////////
+//if statements for other types of characters
+//we will use the userVariables as our "array" for the math.random function 
+//var randomNum=math.floor(math.random()*passwordLength)
+//var char =userVariable[randomNum]
+// for loop the math.random logic i< passwordLength
+////////////////////////////////////////////////////
 
 
-
-
-
-
-  ////////////////////////////////////////////////////
-
-
-
-  //var upperCaseChar = window.alert ("Would you like to include uppercase charcters? if YES, click OK")="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-
-  //var specialChar = window.alert ("Would you like to include special charcters? if YES, click OK")="!@#$%^&*()_+-="
-
-  //var numericChar = window.alert ("Would you like to include numeric charcters? if YES, click OK")="1234567890"
-return "Example"
+return userVariables
 }
 
 // Assignment Code
