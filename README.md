@@ -1,4 +1,4 @@
-# Paasword Gnenerator-peace of mind!
+# Paasword Generator-peace of mind!
 
 An applicaton that can be used by  employees with access to sensitive data and want to randomly generate a password that meets certain criteria so they can create a strong password that provides greater security.
 
