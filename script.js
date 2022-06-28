@@ -13,6 +13,18 @@ var lowercaseChar = "abcdefghijklmnopqrstuvwxyz"
 var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var specialChar = "!@#$%^&*()_+-="
 var numericChar = "1234567890"
+var passwordLength = 10;
+var userVariables = "";
+
+function randomizer() {
+  var password ="";
+  for (var i=0; i<passwordLength; i++) {
+  var randomNum = Math.floor(Math.random() * userVariables.length);
+   password = password + userVariables[randomNum];
+  }
+  return password;
+}
+
 
 function generatePassword() {
 
@@ -20,7 +32,9 @@ function generatePassword() {
 //console.log (passwordLength)
 
   function lengthCheck() {
+   
     var lengthChar = window.prompt("How many characters would you like to include in your password? Choose a number between 8 - 128."); 
+    //debugger;
     let parsedChar = parseInt(lengthChar)
     if (parsedChar < 8) {
       window.alert("Choose a number between 8-128")
@@ -37,7 +51,7 @@ function generatePassword() {
     console.log ("hello")
   }
   
-  var userVariables = ""
+ 
 
   
   if (confirm("Would you like to include lowercase charcters? if YES, click OK")===true){
@@ -55,16 +69,10 @@ function generatePassword() {
         userVariables+=numericChar 
         } 
   
-  function randomizer() {
   
   
-  var password ="";
-  for (var i=0; i<passwordLength; i++) {
-    var randomNum =math.floor(math.random() * passwordLength.length);
-    password = password + passwordLength [randomNum]
-  }
-}  
-  
+
+ 
 ////////////////////////////////////////////
 //if statements for other types of characters
 //we will use the userVariables as our "array" for the math.random function 
@@ -76,16 +84,25 @@ function generatePassword() {
 
 return userVariables
 }
+ 
+
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var correctPrompt = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  if (correctPrompt){
+    var newPassword=randomizer ();
+    passwordText.value = newPassword;
+  }
+  else {
+    passwordText.value = "";
+  }
+  
 
 }
 
